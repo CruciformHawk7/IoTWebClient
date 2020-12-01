@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+* {
+    font-family: 'Inter', 'Helvetica', 'Segoe UI', sans-serif;
+}
+
+.no-margin {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fffc;
+    border-bottom: 2px solid #dadada;
+    min-height: 40px;
+}
+
+.card {
+    border: 1px solid #dadada;
+    width: 22vw;
+    min-height: 120px;
+    border-radius: 4px;
+    margin: 40px 0;
+    height: 20vh;
+    margin: 10px;
+    transition: all 200ms ease;
+}
+
+.card:hover {
+    border: 1px solid #ccc;
+    transform: scale(1.1);
+}
+
+.card:hover .bat-level {
+    background-color: #ccc;
+}
+
+.card:hover .card {
+    filter: brightness(1.5);
+}
+
+.card>h2 {
+    font-weight: 500;
+    padding-left: 30px;
+}
+
+.card>h1 {
+    padding-right: 20px;
+    text-align: right;
+}
+
+.bat-level {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: calc(0.88 * 20vw);
+    transition: width 300ms ease, background-color 300ms ease;
+    background-color: #eee;
+    z-index: -1;
+}
+
+.modal-window {
+    top: 0;
+    position: fixed;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.show-up {
+    display: block;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 500px;
+    height: 300px;
+    transition: all 300ms ease-in-out;
+}
+
+.modal-content {
+    position: absolute;
+    border: 1px solid #000 !important;
+    border-radius: 4px;
+    top: 19px;
+    left: 19px;
+    right: 19px;
+    bottom: 19px;
+    overflow: auto;
+    background-color: #fff;
+    box-shadow: 0 0 5px 3px #ccc;
+}
+
+.overlay {
+    background-color: #fffd;
+    position: fixed;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.modal-close {
+    box-shadow: 0 0 5px 3px #ccc;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    cursor: pointer;
+    background-color: #fff;
+    width: 20px;
+    z-index: 80;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+.add-button {
+    border: 1px solid #0087ff;
+    box-shadow: 3px 5px 3px 0px #ccc;
+    background-color: #fff;
+    z-index: 20;
+    width: 30px;
+    border-radius: 45px;
+    height: 30px;
+    position: fixed;
+    right: 2%;
+    bottom: 10%;
+    padding: 10px;
+}
+
+.h1-middle {
+    text-align: center;
+}
+
+.text {
+    height: 2rem;
+    font-size: 1.8rem;
+    padding: 10px;
+    text-align: center;
+}
+
+.text-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    position: absolute;
+    top: 80%;
+    right: 5%;
+    font-size: large;
+    background-color: #fff;
+    border: 1px solid #0060ff;
+    border-radius: 4px;
+    padding: 8px;
+    transition: all 300ms ease;
+    color: #0060ff;
+    width: 100px;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #0099ff;
+}
+
+.button:active {
+    background-color: #0060ff;
+}

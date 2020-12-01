@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Monitor</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="js/data.js"></script>
+    <script src="js/animations.js"></script>
+</head>
+
+<body>
+
+    <div class="modal-window">
+        <div class="modal-close">
+            <svg viewBox="0 0 320 512" style="width: 20px; height: 20px">
+                <path d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z">
+                </path>
+            </svg>
+        </div>
+        <div class="modal-content">
+
+        </div>
+    </div>
+
+    <div class="add-button">
+        <svg viewBox="0 0 448 512" style="width: 30px; height: 30px;">
+            <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" fill="#0087ff" />
+        </svg>
+    </div>
+
+    <div class="overlay">
+    </div>
+    <header>
+        <nav>
+            <h1 class="no-margin hero">Power Monitor</h1>
+        </nav>
+    </header>
+
+    <div style="padding: 30px;">
+        <div style="border: 1px solid #dadada; border-radius: 4px; padding: 20px;">
+            <h1 style="text-align: center;">Current Power Usage and Prediction</h1>
+            <canvas id="mainChart" width="100" height="30"></canvas>
+        </div>
+    </div>
+    <div style="padding: 30px; display: inline-flex;">
+        <div class="card power-usage">
+            <h2>Max Power Usage</h2>
+            <h1>334 W</h1>
+        </div>
+        <div class="card battery" style="position: relative;">
+            <div class="bat-level"></div>
+            <h2>Battery Level</h2>
+            <h1 id="bat-lev">88 %</h1>
+        </div>
+        <div class="card renew" style="position: relative;">
+            <h2>Energy Generating</h2>
+            <h1 id="rew-lev">8 kW</h1>
+        </div>
+        <div class="card through" style="position: relative;">
+            <h2>Energy Throughput</h2>
+            <h1 id="thr-lev">+5 kW</h1>
+        </div>
+    </div>
+</body>
+
+</html>
