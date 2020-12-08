@@ -1,3 +1,6 @@
+var url = '';
+
+
 var times = [];
 var powerLevels = [];
 var solarLevels = [];
@@ -168,8 +171,9 @@ function showEnergyHistory(modal) {
 
 function whereIsHome(modal) {
     animateOpenModal('hero', 700, 400);
-    var html = '<h1 class="h1-middle">Where is Home?</h1><input type="text" class="text text-middle">';
-    html += '<input type="submit" class="button" value="Go">';
+    var html = '<h1 class="h1-middle">Where is Home?</h1><div class="text-middle"><input type="text" class="text home">';
+    html += '<div class="whereshome"></div></div>';
+    html += '<input type="submit" class="button" value="Go" onclick="FindHome()">';
     $(`.${modal}`).html(html);
 }
 
@@ -177,7 +181,40 @@ function showAddDevice(modal) {
     var html = '<h1 class="h1-middle">Add a device</h1>';
     html += '<div class="text-middle">';
     html += '<input type="text" class="text" placeholder="IP Address"><br/><br />';
+    html += '<select name="devtype" class="newdevtype text" placeholder="Device Type" style="height: 4rem;">';
+    html += '<option value="1" selected>Monitor</option>';
+    html += '<option value="2">Consumer</option>';
+    html += '<option value="3">Generator</option>';
+    html += '</select><br /> <br />'
     html += '<input type="text" class="text" placeholder="Friendly Name"></div>';
-    html += '<input type="submit" class="button" value="Add"';
+    html += '<input type="submit" class="button" value="Add" onclick="AddDev()">';
     $(`.${modal}`).html(html);
+}
+
+function FindHome() {
+    var home = $('.home').val();
+    $.ajax({
+        url: (home + "/Hello"),
+        type: 'GET',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Content-Range, Content-Disposition, Content-Description'
+        },
+        // dataType: 'json',
+        // crossOrigin: true,
+        // crossDomain: true,
+        success: function(res) {
+            $('.whereshome').html("Connected!");
+            url = home;
+            $('.overlay').click();
+        },
+        error: function(res) {
+            $('.whereshome').html('No one is here...');
+        }
+    });
+}
+
+function AddDev() {
+
 }
