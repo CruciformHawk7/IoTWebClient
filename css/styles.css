@@ -23,25 +23,28 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 8px;
     background: #fffc;
-    border-bottom: 2px solid #dadada;
+    border-image: linear-gradient(45deg, #ee0979, #ff6a00) 20;
+    border-bottom: 3px solid;
     min-height: 40px;
 }
 
 .card {
-    border: 1px solid #dadada;
+    border: 3px solid #dadada;
     width: 22vw;
     min-height: 120px;
     border-radius: 4px;
-    margin: 40px 0;
     height: 20vh;
     margin: 10px;
     transition: all 200ms ease;
 }
 
 .card:hover {
-    border: 1px solid #ccc;
-    transform: scale(1.1);
+    border: 3px solid #ccc;
+    margin: 10px;
+    transform: scale(1.05);
+    border-image: linear-gradient(45deg, #ee0979, #ff6a00) 20;
 }
 
 .card:hover .bat-level {
