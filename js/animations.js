@@ -2,23 +2,23 @@ var notificationCount = 0;
 
 $().ready(() => {
     $('.power-usage').click(() => {
-        animateOpenModal('power-usage', 900, 500);
+        animateOpenModal('power-usage', 900, 550);
         showPowerHistory('modal-content')
     });
     $('.battery').click(() => {
-        animateOpenModal('battery', 900, 500);
+        animateOpenModal('battery', 900, 550);
         showBattery('modal-content');
     });
     $('.add-button').click(() => {
-        animateOpenModal('add-button', 900, 500);
+        animateOpenModal('add-button', 900, 550);
         showAddDevice('modal-content');
     });
     $('.renew').click(() => {
-        animateOpenModal('renew', 900, 500);
+        animateOpenModal('renew', 900, 550);
         showEnergyHistory('modal-content');
     });
     $('.through').click(() => {
-        animateOpenModal('through', 900, 500);
+        animateOpenModal('through', 900, 550);
         showThroughputHistory('modal-content');
     });
     whereIsHome('modal-content');
@@ -43,7 +43,7 @@ var setProgress = (value) => {
         }, 800);
     }
 };
- 
+
 var animateOpenModal = (from, width = 500, height = 300) => {
     var clicker = $(`.${from}`);
     var distanceV = clicker.offset().top,
