@@ -37,7 +37,7 @@ $().ready(() => {
 
 var setProgress = (value) => {
     $('.loader').width(`${value}vw`);
-    if (value > 100) {
+    if (value >= 100) {
         setTimeout(() => {
             $('.loader').hide();
         }, 800);
@@ -69,6 +69,9 @@ var animateOpenModal = (from, width = 500, height = 300) => {
 };
 
 var addNotification = (message) => {
-
-    $('.notification-tray').html($('.notification-tray').html() + newNot);
+    $('.notification-tray').slideDown(200);
+    $('.notification').html(message);
+    setTimeout(() => {
+        $('.notification-tray').slideUp(200);
+    }, 2000);
 };

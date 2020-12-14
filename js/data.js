@@ -25,9 +25,7 @@ $().ready(() => {
         },
         options: {}
     });
-    $('.loader').animate({'width': '100vw'}, 1300, () => {
-        $('.loader').width(0);
-    });
+    setProgress(60);
 });
 
 function addVals(jsonobj) {
@@ -282,7 +280,8 @@ function showAddDevice(modal) {
     html += '<option value="Consumer">Consumer</option>';
     html += '<option value="Generator">Generator</option>';
     html += '</select><br /> <br />'
-    html += '<input type="text" class="text" placeholder="Friendly Name" id="friendly"></div>';
+    html += '<input type="text" class="text" placeholder="Friendly Name" id="friendly">';
+    html += '<div class="errormessage"></div></div>';
     html += '<input type="submit" class="button" value="Add" onclick="AddDev()">';
     $(`.${modal}`).html(html);
 }
@@ -302,6 +301,8 @@ async function FindHome() {
             $('.overlay').click();
             GetDevices();
             await updateMainChart();
+            addNotification("Connected Successfully!");
+            setProgress(100);
         },
         error: function(res) {
             $('.whereshome').html('No one is here...');
@@ -314,7 +315,7 @@ function AddDev() {
     var dt = $('#type :selected').text();
     var fn = $('#friendly').val();
     $.ajax({
-        url: (home + "Add"),
+        url: (url + "Add"),
         type: 'POST',
         headers: {
             'Access-Control-Allow-Origin': '*',
@@ -325,6 +326,11 @@ function AddDev() {
             "Friendly" : fn,
             "IP": ip,
             "DeviceType": dt
+        },
+        success: () => {
+            addNotification("Device added successfully.");
+        }, error : (res) => {
+            $('.errormessage').html(res.message);
         }
     })
 }
