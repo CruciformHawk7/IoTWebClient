@@ -26,6 +26,9 @@ $().ready(() => {
         },
         options: {}
     });
+    $('.loader').animate({'width': '100vw'}, 1300, () => {
+        $('.loader').width(0);
+    });
 });
 
 function addVals(jsonobj) {

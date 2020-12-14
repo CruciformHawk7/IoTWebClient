@@ -1,3 +1,5 @@
+var notificationCount = 0;
+
 $().ready(() => {
     $('.power-usage').click(() => {
         animateOpenModal('power-usage', 900, 500);
@@ -33,6 +35,15 @@ $().ready(() => {
     });
 });
 
+var setProgress = (value) => {
+    $('.loader').width(`${value}vw`);
+    if (value > 100) {
+        setTimeout(() => {
+            $('.loader').hide();
+        }, 800);
+    }
+};
+ 
 var animateOpenModal = (from, width = 500, height = 300) => {
     var clicker = $(`.${from}`);
     var distanceV = clicker.offset().top,
@@ -55,4 +66,9 @@ var animateOpenModal = (from, width = 500, height = 300) => {
             'height': height
         });
     }, 10);
+};
+
+var addNotification = (message) => {
+
+    $('.notification-tray').html($('.notification-tray').html() + newNot);
 };
